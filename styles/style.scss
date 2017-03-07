@@ -6,6 +6,7 @@ body, html {
 
 $switchover-width: 768px;
 $sidebar-width: 250px;
+$dark: #242943;
 #summary {
   //  Positioning
   position: fixed;
@@ -31,6 +32,8 @@ $sidebar-width: 250px;
   z-index: 2;
   box-shadow: 3px 0 3px rgba(0,0,0,0.2);
   overflow-y: auto;
+  background-color: $dark;
+  color: white;
   
   .name {
     font-size: 24px;
@@ -44,21 +47,22 @@ $sidebar-width: 250px;
   a.linkedin {
     display: inline-block;
     margin: 10px 0 20px;
-    border-radius: 5px;
+    transition: transform 200ms linear;
     
     &:hover {
-      box-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+      transform: rotate(5deg);
     }
     
     img {
       display: inline-block;
       width: 30px;
+      border-radius: 3px;
     }
   }
   
   .resume {
     display: block;
-    color: black;
+    color: white;
     margin: auto;
     padding: 6px 14px;
     width: 100px;
@@ -66,10 +70,11 @@ $sidebar-width: 250px;
     border-width: 2px;
     border-style: solid;
     text-decoration: none;
+    transition: background-color 300ms;
     
     &:hover, &:focus {
-      color: black;
-      box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      color: $dark;
+      background-color: #fefefe;
     }
   }
 }
@@ -78,7 +83,7 @@ $sidebar-width: 250px;
   // Positioning
   position: fixed;
   margin-left: $sidebar-width;
-  width: calc(100% - $sidebar-width;);
+  width: calc(100% - 250px);
   height: 100%;
   @media (max-width: $switchover-width) {
     position: static;
@@ -87,7 +92,7 @@ $sidebar-width: 250px;
     margin-left: 0px;
   } 
   
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 30px 40px;
   overflow-y: auto;
   
   .wrapper {
@@ -111,8 +116,62 @@ $sidebar-width: 250px;
       
       &:hover {
         cursor: pointer;
-        box-shadow: 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 2px -2px rgba(0,0,0,.2), 0 2px 5px 0 rgba(0,0,0,.12);
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,.14), 0 6px 4px -2px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.12);
       }
+    }
+  }
+}
+
+.modal-container {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 5;
+  color: white;
+  overflow-y: auto;
+  
+  .modal-page {
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    padding: 30px;
+    margin: 50px auto;
+    width: calc(100% - 30px);
+    max-width: 700px;
+    background-color: rgba(27, 31, 34, 0.85);
+    transform: translate(0, -50%);
+    transition: transform 300ms ease-out;
+      
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      color: white;
+      font-size: 30px;
+    }
+    
+    .title {
+      font-size: 20px;
+      margin-top: 15px;
+      border-bottom: solid 1px #ffffff;
+    }
+    
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 450px;
+      margin: 0 auto 20px;
+    }
+  }
+  
+  visibility: hidden;
+  &:target {
+    visibility: visible;
+    
+    .modal-page {
+      transform: translate(0, 0px);
     }
   }
 }

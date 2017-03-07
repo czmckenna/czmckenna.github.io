@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hi, I'm Chris. This is my website.">
-    <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="stylesheet" href="styles/main.css">
     
-    <!-- Bootstrap -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
 
@@ -19,8 +19,9 @@
       <a href="https://www.linkedin.com/in/czmckenna/" class="linkedin" target="_blank">
         <img src="img/in.png">
       </a>
-      <a class="resume" href="/docs/resume.pdf" target="_blank">Resume</a>
+      <a class="resume" href="/resume.pdf" target="_blank">Resume</a>
     </div>
+    
     <div id="main">
       <div class="wrapper">
         <section>
@@ -28,12 +29,65 @@
           <p>I'm a third year undergrad at Northeastern University. My interests are in web development and data science.</p>
         </section>
         <section class="portfolio">
-          <h2>Stuff I've Made</h2>
+          <h2>Portfolio</h2>
           <p>Click on the panels below to check out some of my work.</p>
-          <img src="img/asc.JPG">
-          <img src="img/usage.JPG">
+          <a href="#asc"><img src="img/asc.JPG"></a>
+          <a href="#usage"><img src="img/usage.JPG"></a>
         </section>
       </div>
     </div>
+    
+    <div class="modal-container" id="asc">
+      <div class="modal-page container">
+        <a href="#" class="close-btn">&times;</a>
+        <p class="title">Automated Savings Calculations</p>
+        <img src="img/asc.JPG">
+        <p>This was my primary assignment during my co-op at FirstFuel Software. I designed and implemented a web application that streamlines the way that energy engineers calculate the energy savings potential in the buildings they audit. This was a complete overhaul of their old process, which involved performing all the calculations manually in Excel.</p>
+        <p>Engineers first upload files containing all known data about their building. Once the building data is uploaded, they use the app to tweak their assumptions about the current state of the building (hours of operation, temperature controls, etc.). Then, they select energy conservation measures that they would like to suggest for the building. Each conservation measure has a unique page that allows the engineer to control the inputs to the savings model and visualize its predicted energy savings impact. The image below shows a section from one of those pages.</p>
+        <img src="img/asc2.JPG">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <img src="img/asc3.jpg">
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <p>The application also provides a simple, automated way to generate customer-facing documents that detail the engineer's suggestions and savings estimates. This replaced the old, manual process, saving the team hours of valuable time every week. A page from a sample report is shown here.</p>
+            <p>One of my favorite parts of the project was using my chemical engineering background to come up with improvements to the models used to estimate energy savings. Using principles from thermodynamics and heat transfer, I proposed many new calculation methodologies to the team, most of which I was given the green light to codify into the savings models. These models took into account factors like building type, hours of operation, outside air temperature, and humidity to estimate savings for each energy conservation measure on an hour-by-hour basis.</p>
+          </div>
+        </div>
+        <p>I created this application using an MVC architecture built on top of Flask. The models were written in Python using an object-oriented design that helped me manage the application's complexity as feature requests kept rolling in. Numpy and pandas were used extensively to organize and crunch the weather and energy data. These optimized computing packages keep the user experience quick and responsive, even when individual user actions trigger calculations on tens of thousands of rows of data on the backend.</p>
+        <p>The application is hosted on an Amazon EC2 instance running Amazon's own distribution of Linux, using Apache with mod_wsgi as the server. Amazon S3 was used for all permanent data storage needs.</p>
+        <p>On the front end, Bootstrap's column layout and default styles were used extensively. Highcharts was used to generate the interactive charts and graphs shown above. The charts plotted on the customer-facing documents were made using matplotlib. In hindsight, it definitely would have been a good idea to use a front-end framework, but this project was my first exposure to JavaScript, so I just ended up using plain old JavaScript with jQuery sprinkled throughout. jQuery was particularly helpful with performing AJAX requests on the main dashboard, which allowed the engineers to calculate the results of different combinations of energy conservation measures without leaving or refreshing the page.</p>
+      </div>
+    </div>
+    
+    <div class="modal-container" id="usage">
+      <div class="modal-page container">
+        <a href="#" class="close-btn">&times;</a>
+        <p class="title">Usage Dashboard</p>
+        <img src="img/usage.JPG">
+        <p>This was a fun side project I completed while at FirstFuel. The company had access to a feed of customer usage data that updated every week, and we wanted to display the data on a big screen in the office so that FirstFuel employees could see trends in how our products were being used. The data included metrics that tracked how active users were and how often they used specfic features of each product.</p>
+        <p>I built a web application that functioned as an interactive slideshow where employees could see customer usage data broken down by week. The picture above shows one of these slides (with the real usage data and associated labels modified). Employees can walk up to the display, pause/play the slideshow, and interact with the charts. A cron job running on the Amazon EC2 host regularly checks for new batches of usage data, and when new data is found, a script on the client side detects this change and automatically refreshes the page to fetch the new data.</p>
+        <div class="row">
+          <div class="col-xs-12 col-sm-5">
+            <img src="img/usage2.JPG">
+          </div>
+          <div class="col-xs-12 col-sm-7">
+            <p>Additionally, I added a settings page where users could change the properties of the slideshow, such as slide duration and range of dates displayed. These settings were tracked using cookies, so any employee on the VPN could access the slideshow from their own computer using their own personal settings.</p>
+            <p>I made this app with many of the same technologies as the automated savings calculations app: Python, Flask, pandas, numpy, Linux, Apache, S3, Bootstrap, Javascript, jQuery, and Highcharts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $('.modal-container').click(function(event){
+          if ($(event.target).hasClass('modal-container')) {
+            window.location.href = '#';
+          }
+        })
+      });
+    </script>
   </body>
 </html>
