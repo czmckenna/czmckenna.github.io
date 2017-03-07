@@ -98,7 +98,6 @@ body, html {
   .modal-container .modal-page {
     left: 0px;
     right: 0px;
-    position: absolute;
     padding: 30px;
     margin: 50px auto;
     width: calc(100% - 30px);
