@@ -3,6 +3,11 @@ body, html {
   height: 100%;
   font-family: sans-serif; }
 
+@keyframes tilt {
+  0%, 100% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(5deg); } }
 #summary {
   position: fixed;
   height: 100%;
@@ -31,10 +36,9 @@ body, html {
     font-size: 16px; }
   #summary a.linkedin {
     display: inline-block;
-    margin: 10px 0 20px;
-    transition: transform 200ms linear; }
+    margin: 10px 0 20px; }
     #summary a.linkedin:hover {
-      transform: rotate(5deg); }
+      animation: tilt 0.5s linear 0s 1; }
     #summary a.linkedin img {
       display: inline-block;
       width: 30px;
