@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hi, I'm Chris. This is my website.">
+    <link rel="icon" type="image/png" href="favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="styles/main.css">
     
     <!-- Bootstrap CSS -->
@@ -39,7 +40,7 @@
     
     <div class="modal-container" id="asc">
       <div class="modal-page container">
-        <a href="#" class="close-btn">&times;</a>
+        <a href="/" class="close-btn">&times;</a>
         <p class="title">Automated Savings Calculations</p>
         <img src="img/asc.JPG">
         <p>This was my primary assignment during my co-op at FirstFuel Software. I designed and implemented a web application that streamlines the way that energy engineers calculate the energy savings potential in the buildings they audit. This was a complete overhaul of their old process, which involved performing all the calculations manually in Excel.</p>
@@ -62,7 +63,7 @@
     
     <div class="modal-container" id="usage">
       <div class="modal-page container">
-        <a href="#" class="close-btn">&times;</a>
+        <a href="/" class="close-btn">&times;</a>
         <p class="title">Usage Dashboard</p>
         <img src="img/usage.JPG">
         <p>This was a fun side project I completed while at FirstFuel. The company had access to a feed of customer usage data that updated every week, and we wanted to display the data on a big screen in the office so that FirstFuel employees could see trends in how our products were being used. The data included metrics that tracked how active users were and how often they used specific features of each product.</p>
@@ -84,7 +85,7 @@
       $(function(){
         $('.modal-container').click(function(event){
           if ($(event.target).hasClass('modal-container')) {
-            window.location.href = '#';
+            window.location.href = '/';
           }
         })
       });
