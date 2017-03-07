@@ -80,7 +80,7 @@ $dark: #242943;
     text-decoration: none;
     transition: background-color 300ms;
     
-    &:hover, &:focus {
+    &:hover {
       color: $dark;
       background-color: #fefefe;
     }

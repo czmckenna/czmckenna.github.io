@@ -54,7 +54,7 @@ body, html {
     border-style: solid;
     text-decoration: none;
     transition: background-color 300ms; }
-    #summary .resume:hover, #summary .resume:focus {
+    #summary .resume:hover {
       color: #242943;
       background-color: #fefefe; }
 
