@@ -9,6 +9,10 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
   </head>
 
   <body>
@@ -27,13 +31,16 @@
       <div class="wrapper">
         <section>
           <h2>About Me</h2>
-          <p>I'm a third year undergrad at Northeastern University. My interests are in web development and data science.</p>
+          <p>I'm a third year undergrad at Northeastern University. My interests are in data science and web development. I believe in the importance of data driven decisions, but I also believe that effectively sharing one's insights with others is equally important. I see the web as a powerful communications tool that enables a wide audience to visualize and play with one's data.</p>
         </section>
         <section class="portfolio">
           <h2>Portfolio</h2>
           <p>Click on the panels below to check out some of my work.</p>
-          <a href="#asc"><img src="img/asc.JPG"></a>
-          <a href="#usage"><img src="img/usage.JPG"></a>
+          <div id="ff-container">
+            <a href="#asc"><img src="img/asc.JPG"></a>
+            <a href="#usage"><img src="img/usage.JPG"></a>
+          </div>
+          <a href="#cloudcart"><img src="img/cloudcart.PNG"></a>
         </section>
       </div>
     </div>
@@ -42,6 +49,7 @@
       <div class="modal-page container">
         <a href="/" class="close-btn">&times;</a>
         <p class="title">Automated Savings Calculations</p>
+        <hr>
         <img src="img/asc.JPG">
         <p>This was my primary assignment during my co-op at FirstFuel Software. I designed and implemented a web application that streamlines the way that energy engineers calculate the energy savings potential in the buildings they audit. This was a complete overhaul of their old process, which involved performing all the calculations manually in Excel.</p>
         <p>Engineers first upload files containing all known data about their building. Once the building data is uploaded, they use the app to tweak their assumptions about the current state of the building (hours of operation, temperature controls, etc.). Then, they select energy conservation measures that they would like to suggest for the building. Each conservation measure has a unique page that allows the engineer to control the inputs to the savings model and visualize its predicted energy savings impact. The image below shows a section from one of those pages.</p>
@@ -65,6 +73,7 @@
       <div class="modal-page container">
         <a href="/" class="close-btn">&times;</a>
         <p class="title">Usage Dashboard</p>
+        <hr>
         <img src="img/usage.JPG">
         <p>This was a fun side project I completed while at FirstFuel. The company had access to a feed of customer usage data that updated every week, and we wanted to display the data on a big screen in the office so that FirstFuel employees could see trends in how our products were being used. The data included metrics that tracked how active users were and how often they used specific features of each product.</p>
         <p>I built a web application that functioned as an interactive slideshow where employees could see customer usage data broken down by week. The picture above shows one of these slides (with the real usage data and associated labels modified). Employees can walk up to the display, pause/play the slideshow, and interact with the charts. A cron job running on the Amazon EC2 host regularly checks for new batches of usage data, and when new data is found, a script on the client side detects this change and automatically refreshes the page to fetch the new data.</p>
@@ -79,15 +88,46 @@
         </div>
       </div>
     </div>
-    
+
+    <div class="modal-container" id="cloudcart">
+      <div class="modal-page container">
+        <a href="/" class="close-btn">&times;</a>
+        <p class="title">CloudCart</p>
+        <a href='https://itunes.apple.com/us/app/cloudcart/id1035509564?mt=8'>https://itunes.apple.com/us/app/cloudcart/id1035509564?mt=8</a>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <div id="cloudcart-images">
+              <div><img src="img/cloudcart.PNG"></div>
+              <div><img src="img/cloudcart2.PNG"></div>
+              <div><img src="img/cloudcart3.PNG"></div>
+              <div><img src="img/cloudcart4.PNG"></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <p>I made this iOS app during the summer of 2015. The idea behind it was that families should be able to easily keep a shared, running grocery list every week. Whenever someone thinks of something they want from the store, they can add that item to the shared list from their own device, and then when someone goes shopping later that week, they can look at everyone's requests on their phone at the grocery store.</p>
+            <p>I wrote the app in Swift. To handle everything on the server-side, I used a backend as a service called Parse, which has an iOS SDK that provides a nice abstraction of the backend. One of the key challenges I had when making this app was allowing users to add, edit, and remove list items while off the network such that those changes would be made in the cloud when their connection was restored. This involved tracking local vs. server-side state, which was tricky at times. In order to keep the UI responsive while network requests were being made, I used a lot of multithreaded code, which presented interesting problems as well.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+w
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
     <script>
       $(function(){
+        
+        // Clicking modal background dismisses modal
         $('.modal-container').click(function(event){
           if ($(event.target).hasClass('modal-container')) {
             window.location.href = '/';
           }
         })
+        
+        // CloudCart Carousel
+        $('#cloudcart-images').slick({
+          dots: true
+        });
       });
     </script>
   </body>
