@@ -10,17 +10,17 @@
 
       gtag('config', 'UA-107703830-1');
     </script>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Christopher McKenna - Student at Northeastern University studying computer science and chemical engineering. Come check out my portfolio!">
+    <meta name="description" content="Christopher McKenna. Software engineer at HubSpot.">
     <link rel="icon" type="image/png" href="favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="css/main.css">
     <title>Chris McKenna</title>
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
+
     <!-- Slick Carousel -->
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -30,23 +30,20 @@
     <div id="summary">
       <img id="profile" src="img/profile.png">
       <p class="name">Chris McKenna</p>
-      <p>Computer Science</p>
-      <p>Chemical Engineering</p>
       <a href="https://www.linkedin.com/in/czmckenna/" class="linkedin" target="_blank">
         <img src="img/in.png">
       </a>
-      <a class="resume" href="/resume.pdf" target="_blank">Resume</a>
     </div>
-    
+
     <div id="main">
       <div class="wrapper">
-        <section>
-          <h2>About Me</h2>
-          <p>I'm a fourth year undergraduate at Northeastern University. My interests are in data science and web development. I believe that important decisions need to be driven by data, and that effective communication of data driven insights is a key step in making this happen. I see the web as a powerful communications tool that enables a wide audience to visualize, understand, and play with data.</p>
-        </section>
         <section class="portfolio">
-          <h2>Portfolio</h2>
-          <p>Click on the panels below to check out some of my work.</p>
+          <h4>Articles I wrote for the HubSpot engineering blog</h4>
+          <ul>
+            <li><a href="https://product.hubspot.com/blog/hotspot-tracking-library">Building a Fast, Thread-safe Hotspot Tracking Library</a></li>
+            <li><a href="https://product.hubspot.com/blog/preventing-hotspotting-with-deduplication">Improving Database Reliability: Preventing Hotspotting with Client-side Request Deduplication</a></li>
+          </ul>
+          <h4>Click on the panels below to check out some of my work from before HubSpot</h4>
           <div id="ff-container">
             <a href="#asc"><img src="img/asc.JPG"></a>
             <a href="#usage"><img src="img/usage.JPG"></a>
@@ -55,7 +52,7 @@
         </section>
       </div>
     </div>
-    
+
     <div class="modal-container" id="asc">
       <div class="modal-page container">
         <a href="/" class="close-btn">&times;</a>
@@ -79,7 +76,7 @@
         <p>On the frontend, Bootstrap's column layout and default styles were used extensively. Highcharts was used to generate the interactive charts and graphs shown above. The charts plotted on the customer-facing documents were made using matplotlib. The frontend code was just plain old JavaScript with some jQuery used mainly for DOM manipulation and AJAX requests.</p>
       </div>
     </div>
-    
+
     <div class="modal-container" id="usage">
       <div class="modal-page container">
         <a href="/" class="close-btn">&times;</a>
@@ -126,14 +123,14 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script>
       $(function(){
-        
+
         // Clicking modal background dismisses modal
         $('.modal-container').click(function(event){
           if ($(event.target).hasClass('modal-container')) {
             window.location.href = '/';
           }
         })
-        
+
         // CloudCart Carousel
         $('#cloudcart-images').slick({
           dots: true

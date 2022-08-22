@@ -11,7 +11,7 @@ body, html {
   50% {
     transform: rotate(5deg);
   }
-} 
+}
 
 $switchover-width: 768px;
 $sidebar-width: 250px;
@@ -22,20 +22,20 @@ $dark: #242943;
   height: 100%;
   width: $sidebar-width;
   $profile-width: 150px;
-  
+
   #profile {
     width: $profile-width;
     border-radius: $profile-width / 2;
     box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
     margin-bottom: 20px;
   }
-  
+
   @media (max-width: $switchover-width) {
     position: static;
     height: auto;
     width: auto;
   }
-  
+
   padding: 30px 0;
   text-align: center;
   z-index: 2;
@@ -43,31 +43,31 @@ $dark: #242943;
   overflow-y: auto;
   background-color: $dark;
   color: white;
-  
+
   .name {
     font-size: 24px;
     font-weight: bold;
   }
-  
+
   p {
     font-size: 16px;
   }
-  
+
   a.linkedin {
     display: inline-block;
     margin: 10px 0 20px;
-    
+
     &:hover {
       animation: tilt 0.5s linear 0s 1;
     }
-    
+
     img {
       display: inline-block;
       width: 30px;
       border-radius: 3px;
     }
   }
-  
+
   .resume {
     display: block;
     color: white;
@@ -79,7 +79,7 @@ $dark: #242943;
     border-style: solid;
     text-decoration: none;
     transition: background-color 300ms;
-    
+
     &:hover {
       color: $dark;
       background-color: #fefefe;
@@ -98,30 +98,30 @@ $dark: #242943;
     width: auto;
     height: auto;
     margin-left: 0px;
-  } 
-  
+  }
+
   padding: 0 30px 30px 40px;
   overflow-y: auto;
-  
+
   .wrapper {
     max-width: 750px;
     width: 100%;
   }
-  
-  h2 {
+
+  h4 {
     margin-top: 40px;
   }
-  
+
   .portfolio {
     a {
       display: block;
-      
+
       $max-cloudcart-height: 400px;
       &[href="#cloudcart"] {
         display: inline-block;
         vertical-align: top;
         max-height: $max-cloudcart-height;
-        
+
         img {
           max-height: $max-cloudcart-height;
         }
@@ -133,16 +133,16 @@ $dark: #242943;
       margin-right: 20px;
       width: 100%;
       max-width: 500px;
-      
+
       img {
         width: 100%;
       }
     }
-    
+
     img {
       margin-bottom: 20px;
       box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-      
+
       &:hover {
         cursor: pointer;
         box-shadow: 0 5px 5px 0 rgba(0,0,0,.14), 0 6px 4px -2px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.12);
@@ -160,7 +160,7 @@ $dark: #242943;
   z-index: 5;
   color: white;
   overflow-y: auto;
-  
+
   .modal-page {
     left: 0px;
     right: 0px;
@@ -171,7 +171,7 @@ $dark: #242943;
     background-color: rgba(27, 31, 34, 0.85);
     transform: translate(0, -50%);
     transition: transform 300ms ease-out;
-      
+
     .close-btn {
       position: absolute;
       top: 5px;
@@ -179,19 +179,19 @@ $dark: #242943;
       color: white;
       font-size: 30px;
     }
-    
+
     .title {
       font-size: 20px;
       margin-top: 15px;
       margin-bottom: 5px;
     }
-    
+
     hr {
       color: white;
       margin-top: 0px;
       margin-bottom: 20px;
     }
-    
+
     img {
       display: block;
       max-width: 100%;
@@ -199,11 +199,11 @@ $dark: #242943;
       margin: 0 auto 20px;
     }
   }
-  
+
   visibility: hidden;
   &:target {
     visibility: visible;
-    
+
     .modal-page {
       transform: translate(0, 0px);
     }
@@ -223,7 +223,7 @@ $dark: #242943;
     &.slick-active button:before {
       color: white;
     }
-    
+
     button:before {
       color: rgba(255, 255, 255, 0.8);
     }
@@ -231,11 +231,11 @@ $dark: #242943;
   .slick-slide {
     outline: none;
   }
-  
+
   .title {
     margin-bottom: 5px;
   }
-  
+
   a {
     color: white;
     word-wrap: break-word;
